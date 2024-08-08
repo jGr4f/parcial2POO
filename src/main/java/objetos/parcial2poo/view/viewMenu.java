@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package objetos.parcial2poo.view;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 import objetos.parcial2poo.model.*;
+import objetos.parcial2poo.modelview.Guardar;
 
 /**
  *
@@ -32,7 +36,7 @@ public class viewMenu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         fieldNombre = new javax.swing.JTextField();
-        fieldTexto = new javax.swing.JTextField();
+        fieldDocumento = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         cbMenu = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
@@ -58,9 +62,9 @@ public class viewMenu extends javax.swing.JFrame {
             }
         });
 
-        fieldTexto.addActionListener(new java.awt.event.ActionListener() {
+        fieldDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldTextoActionPerformed(evt);
+                fieldDocumentoActionPerformed(evt);
             }
         });
 
@@ -112,7 +116,7 @@ public class viewMenu extends javax.swing.JFrame {
                                 .addGap(117, 117, 117)
                                 .addComponent(jLabel2)
                                 .addGap(31, 31, 31)
-                                .addComponent(fieldTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(fieldDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(117, 117, 117)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,7 +151,7 @@ public class viewMenu extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(fieldTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fieldDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -174,9 +178,9 @@ public class viewMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldNombreActionPerformed
 
-    private void fieldTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldTextoActionPerformed
+    private void fieldDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDocumentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fieldTextoActionPerformed
+    }//GEN-LAST:event_fieldDocumentoActionPerformed
 
     private void cbMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMenuActionPerformed
         // TODO add your handling code here:
@@ -187,7 +191,13 @@ public class viewMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_cbBebidaActionPerformed
 
     private void btnConfirmarEleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarEleccionActionPerformed
-        // TODO add your handling code here:
+        int conf = JOptionPane.showConfirmDialog(null, "Está seguro de su selección? Luego de confirmarla no podrá cambiarla.");
+        Guardar en = new Guardar();
+        if(conf == 0){
+        en.enviarMenu(fieldNombre.getText(), fieldDocumento.getText(), cbMenu.getSelectedItem(), cbBebida.getSelectedItem());
+            
+        }
+        
     }//GEN-LAST:event_btnConfirmarEleccionActionPerformed
 
     /**
@@ -230,8 +240,8 @@ public class viewMenu extends javax.swing.JFrame {
     private java.awt.Button btnConfirmarEleccion;
     private javax.swing.JComboBox<String> cbBebida;
     private javax.swing.JComboBox<String> cbMenu;
+    private javax.swing.JTextField fieldDocumento;
     private javax.swing.JTextField fieldNombre;
-    private javax.swing.JTextField fieldTexto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -239,4 +249,9 @@ public class viewMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
+
+    
+    
+    
+
 }
