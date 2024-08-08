@@ -21,11 +21,10 @@ public class ConexionDB {
 
     public static void conectarFirestore() {
         try {
-            FileInputStream sAcc = new FileInputStream("blueprintKey.json");
-            FirebaseOptions options = FirebaseOptions.builder()
-                    .setCredentials(GoogleCredentials.fromStream(sAcc))
-                    .setDatabaseUrl("https://<DATABASE_NAME>.firebaseio.com/")
-                    .build();
+            FileInputStream sAcc = new FileInputStream("");
+            FirebaseOptions options = new FirebaseOptions.Builder()
+            .setCredentials(GoogleCredentials.fromStream(sAcc))
+            .build();
 
             FirebaseApp.initializeApp(options);
             db = FirestoreClient.getFirestore();
